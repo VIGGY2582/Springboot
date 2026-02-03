@@ -11,7 +11,16 @@ public class HC {
     @GetMapping("/")
     @ResponseBody
     public String hello(){
-        return "home";
+        return "<!DOCTYPE html>" +
+                "<html lang=\"en\">" +
+                "<head>" +
+                "    <meta charset=\"UTF-8\">" +
+                "    <title>hi</title>" +
+                "</head>" +
+                "<body>" +
+                "    <h1>Hi</h1>" +
+                "</body>" +
+                "</html>";
     }
 //
 //    @GetMapping("/hello/{name}")
