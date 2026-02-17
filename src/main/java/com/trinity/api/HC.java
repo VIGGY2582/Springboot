@@ -1,27 +1,76 @@
 package com.trinity.api;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
+@RequestMapping("/calc")
 public class HC {
-    @GetMapping("/")
-    @ResponseBody
-    public String hello(){
-        return "<!DOCTYPE html>" +
-                "<html lang=\"en\">" +
-                "<head>" +
-                "    <meta charset=\"UTF-8\">" +
-                "    <title>hi</title>" +
-                "</head>" +
-                "<body>" +
-                "    <h1>Hi</h1>" +
-                "</body>" +
-                "</html>";
+
+    @GetMapping("/{a}/{b}")
+    public String calc(@PathVariable int a, @PathVariable int b) {
+        int add = a + b;
+        int sub = a - b;
+        int pro = a * b;
+        int div = a / b;
+        int rem = a % b;
+        return "ADD = " + add +"<br>" + " Sub = " + sub +"<br>" + " Product = " + pro +"<br>" + " Quotent = " + div +"<br>" + " rem = " + rem;
     }
+
+    @GetMapping("/add/{a}/{b}")
+    public int add(@PathVariable int a, @PathVariable int b) {
+        return a + b;
+    }
+
+    @GetMapping("/sub/{a}/{b}")
+    public int sub(@PathVariable int a, @PathVariable int b) {
+        return a - b;
+    }
+
+    @GetMapping("/pro/{a}/{b}")
+    public int pro(@PathVariable int a, @PathVariable int b) {
+        return a * b;
+    }
+
+    @GetMapping("/quo/{a}/{b}")
+    public int quo(@PathVariable int a, @PathVariable int b) {
+        return a / b;
+    }
+
+    @GetMapping("/rem/{a}/{b}")
+    public int rem(@PathVariable int a, @PathVariable int b) {
+        return a % b;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    @GetMapping("/")
+//    @ResponseBody
+//    public String hello(){
+//        return "<!DOCTYPE html>" +
+//                "<html lang=\"en\">" +
+//                "<head>" +
+//                "    <meta charset=\"UTF-8\">" +
+//                "    <title>hi</title>" +
+//                "</head>" +
+//                "<body>" +
+//                "    <h1>Hi</h1>" +
+//                "</body>" +
+//                "</html>";
+//    }
 //
 //    @GetMapping("/hello/{name}")
 //    public String sayHello(@PathVariable String name){
@@ -55,7 +104,7 @@ public class HC {
 //
 //        return "Hi I am " + name + "!";
 //    }
-}
+
 
 
 
